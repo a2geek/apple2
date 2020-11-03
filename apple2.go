@@ -24,6 +24,7 @@ type Apple2 struct {
 	showSpeed           bool
 	paused              bool
 	traceMLI            *traceProDOS
+	forceCaps           bool
 }
 
 const (
@@ -135,6 +136,16 @@ func (a *Apple2) setProfiling(value bool) {
 // IsProfiling returns true when profiling
 func (a *Apple2) IsProfiling() bool {
 	return a.profile
+}
+
+// SetForceCaps allows the caps state to be toggled at runtime
+func (a *Apple2) SetForceCaps(value bool) {
+	a.forceCaps = value
+}
+
+// IsForceCaps returns true when all letters are forced to upper case
+func (a *Apple2) IsForceCaps() bool {
+	return a.forceCaps
 }
 
 const (
